@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đặt Phòng Khách Sạn</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<style>
+    /* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Phần Đặt Phòng */
+.room-booking {
+    background: linear-gradient(135deg, #3498db, #2ecc38);
+    color: white;
+    padding: 80px 0;
+    text-align: center;
+}
+
+.room-booking .container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.room-booking h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    font-weight: 600;
+}
+
+.booking-form {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+    width: 100%;
+}
+
+.form-group label {
+    font-size: 1rem;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.form-group input, .form-group select {
+    padding: 10px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    width: 100%;
+    max-width: 300px;
+    outline: none;
+}
+
+.form-group input:focus, .form-group select:focus {
+    border: 2px solid #2ecc71;
+}
+
+.btn-book {
+    background-color: #e74c3c;
+    color: white;
+    padding: 12px 25px;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-book:hover {
+    background-color: #c0392b;
+    transform: scale(1.05);
+}
+
+/* Phần Chi Tiết Phòng */
+.room-details {
+    padding: 60px 0;
+    background-color: #f8f8f8;
+    text-align: center;
+}
+
+.room-details .container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.room-details h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    font-weight: 600;
+}
+
+.room-grid {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.room-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 300px;
+    text-align: left;
+    transition: transform 0.3s;
+}
+
+.room-card:hover {
+    transform: translateY(-10px);
+}
+
+.room-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.room-info {
+    padding: 20px;
+}
+
+.room-card h3 {
+    font-size: 1.8rem;
+    color: #3498db;
+    margin-bottom: 10px;
+}
+
+.room-card p {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.room-card .price {
+    font-size: 1.2rem;
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+/* Hiệu ứng hover chung cho các nút */
+.btn-details:hover, .btn-book-now:hover {
+    background-color: #2980b9;  /* Màu nền xanh khi hover */
+    transform: scale(1.05);  /* Phóng to nút */
+    transition: all 0.3s ease-in-out;  /* Thêm hiệu ứng chuyển động mượt mà */
+}
+
+/* Nút "Đặt Ngay" */
+.btn-book-now {
+    background-color: #e74c3c;  /* Màu nền ban đầu đỏ */
+    color: white;  /* Màu chữ trắng */
+    padding: 10px 20px;  /* Padding cho nút */
+    border-radius: 25px;  /* Bo góc cho nút */
+    text-decoration: none;  /* Xóa gạch dưới của liên kết */
+    font-size: 1.1rem;
+    font-weight: bold;
+    display: inline-block;
+}
+
+/* Hiệu ứng hover cho nút "Đặt Ngay" */
+.btn-book-now:hover {
+    background-color: #c0392b;  /* Màu nền đỏ đậm khi hover */
+}
+
+/* Nút "Xem Chi Tiết" */
+.btn-details {
+    background-color: #3498db;  /* Màu nền xanh khi bình thường */
+    color: white;  /* Màu chữ trắng */
+    padding: 10px 20px;  /* Padding cho nút */
+    border-radius: 25px;  /* Bo góc cho nút */
+    text-decoration: none;  /* Xóa gạch dưới của liên kết */
+    font-size: 1.1rem;
+    font-weight: bold;
+    display: inline-block;
+}
+
+/* Hiệu ứng hover cho nút "Xem Chi Tiết" */
+.btn-details:hover {
+    background-color: #2980b9;  /* Màu nền xanh khi hover */
+}
+
+
+</style>
+<body>
+
+<section class="room-booking">
+    <div class="container">
+        <h2>Đặt Phòng Ngay</h2>
+        <form action="#" class="booking-form">
+            <div class="form-group">
+                <label for="checkin">Ngày nhận phòng:</label>
+                <input type="date" id="checkin" name="checkin" required>
+            </div>
+            <div class="form-group">
+                <label for="checkout">Ngày trả phòng:</label>
+                <input type="date" id="checkout" name="checkout" required>
+            </div>
+            <div class="form-group">
+                <label for="guests">Số khách:</label>
+                <select id="guests" name="guests" required>
+                    <option value="1">1 Khách</option>
+                    <option value="2">2 Khách</option>
+                    <option value="3">3 Khách</option>
+                    <option value="4">4 Khách</option>
+                    <option value="5+">5+ Khách</option>
+                </select>
+            </div>
+            <button type="submit" class="btn-book">Tìm Phòng</button>
+        </form>
+    </div>
+</section>
+
+<section class="room-details">
+    <div class="container">
+        <h2>Phòng Đang Có Sẵn</h2>
+        <div class="room-grid">
+            <div class="room-card">
+                <img src="https://khachsandep.vn/storage/files/Du-an/Kha%CC%81ch%20sa%CC%A3n%20anh%20Thu%CC%9Bo%CC%9B%CC%89ng/PHONGVIP1.jpg" alt="Phòng Deluxe">
+                <div class="room-info">
+                    <h3>Phòng Deluxe</h3>
+                    <p>Phòng rộng rãi với giường đôi, view biển tuyệt đẹp.</p>
+                    <span class="price">2,000,000 VND/đêm</span>
+                    <a href="#" class="btn-details">Xem Chi Tiết</a>
+                    <br>
+                    <a href="#" class="btn-book-now">Đặt Ngay</a>
+                </div>
+            </div>
+            <div class="room-card">
+                <img src="https://ik.imagekit.io/tvlk/apr-asset/dgXfoyh24ryQLRcGq00cIdKHRmotrWLNlvG-TxlcLxGkiDwaUSggleJNPRgIHCX6/hotel/asset/10029650-840x460-FIT_AND_TRIM-65fd70887a6a4dfbb57d2e87c7ec96d5.jpeg" alt="Phòng Suite">
+                <div class="room-info">
+                    <h3>Phòng Suite</h3>
+                    <p>Phòng cao cấp với nội thất sang trọng và dịch vụ 5 sao.</p>
+                    <span class="price">5,000,000 VND/đêm</span>
+                    <a href="#" class="btn-details">Xem Chi Tiết</a>
+                    <br>
+                    <a href="#" class="btn-book-now">Đặt Ngay</a>
+                </div>
+            </div>
+            <div class="room-card">
+                <img src="https://tubepfurniture.com/wp-content/uploads/2020/09/phong-mau-khach-san-go-cong-nghiep-01.jpg" alt="Phòng Standard">
+                <div class="room-info">
+                    <h3>Phòng Standard</h3>
+                    <p>Phòng tiện nghi, phù hợp với mọi ngân sách.</p>
+                    <span class="price">1,200,000 VND/đêm</span>
+                    <a href="#" class="btn-details">Xem Chi Tiết</a>
+                    <br>
+                    <a href="#" class="btn-book-now">Đặt Ngay</a>
+                
+                </div>
+            </div>
+            <div class="room-card">
+                <img src="https://dodungkhachsandep.com/wp-content/uploads/2020/02/tieu-chuan-khach-san-1-sao.jpg" alt="Phòng Deluxe">
+                <div class="room-info">
+                    <h3>Phòng Deluxe</h3>
+                    <p>Phòng rộng rãi với giường đôi, view biển tuyệt đẹp.</p>
+                    <span class="price">2,000,000 VND/đêm</span>
+                    <a href="#" class="btn-details">Xem Chi Tiết</a>
+                    <br>
+                    <a href="#" class="btn-book-now">Đặt Ngay</a>
+                </div>
+            </div>
+            <div class="room-card">
+                <img src="https://studiochupanhdep.com/Upload/Images/Album/anh-noi-that-khach-san-dep-01.jpg" alt="Phòng Deluxe">
+                <div class="room-info">
+                    <h3>Phòng Suite</h3>
+                    <p>Phòng rộng rãi với giường đôi, view biển tuyệt đẹp.</p>
+                    <span class="price">2,000,000 VND/đêm</span>
+                    <a href="#" class="btn-details">Xem Chi Tiết</a>
+                    <br>
+                    <a href="#" class="btn-book-now">Đặt Ngay</a>
+                </div>
+            </div>
+            <div class="room-card">
+                <img src="https://khachsandep.com.vn/storage/files/dothanhnga/phongngu.jpg" alt="Phòng Deluxe">
+                <div class="room-info">
+                    <h3>Phòng Standard</h3>
+                    <p>Phòng rộng rãi với giường đôi, view biển tuyệt đẹp.</p>
+                    <span class="price">2,000,000 VND/đêm</span>
+                    <a href="#" class="btn-details">Xem Chi Tiết</a>
+                    <br>
+                    <a href="#" class="btn-book-now">Đặt Ngay</a>
+                </div>
+            </div>
+            <div class="room-card">
+                <img src="https://baoninhbinh.org.vn/user-blob/bnb_old_data/DATA/ARTICLES/2024/3/9/nen-dat-phong-khach-san-truoc-bao-lau-can-luu-y-nhung-dieu-74999.jpg" alt="Phòng Deluxe">
+                <div class="room-info">
+                    <h3>Phòng 3 người</h3>
+                    <p>Phòng rộng rãi với view biển tuyệt đẹp.</p>
+                    <span class="price">2,000,000 VND/đêm</span>
+                    <a href="#" class="btn-details">Xem Chi Tiết</a>
+                    <br>
+                    <a href="#" class="btn-book-now">Đặt Ngay</a>
+                </div>
+            </div>
+            <div class="room-card">
+                <img src="https://thietkethicong.org/Uploads/files/XLKHACHSAN/Newfolder4/ksty-23.jpg" alt="Phòng Deluxe">
+                <div class="room-info">
+                    <h3>Phòng Tình yêu</h3>
+                    <p>Phòng rộng rãi với giường đôi, độc đáo và lãng mạn với mức chi phí hợp lý.</p>
+                    <span class="price">2,000,000 VND/đêm</span>
+                    <a href="#" class="btn-details">Xem Chi Tiết</a>
+                    <br>
+                    <a href="#" class="btn-book-now">Đặt Ngay</a>
+                </div>
+            </div>
+            <div class="room-card">
+                <img src="https://media.vneconomy.vn/w900/images/upload/2021/09/04/34884794003-79b7caebee-k-1519666489.jpg" alt="Phòng Deluxe">
+                <div class="room-info">
+                    <h3>Phòng Bình minh</h3>
+                    <p>Phòng rộng rãi đầy đủ tiện nghi.</p>
+                    <span class="price">2,000,000 VND/đêm</span>
+                    <a href="#" class="btn-details">Xem Chi Tiết</a>
+                    <br>
+                    <a href="#" class="btn-book-now">Đặt Ngay</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>

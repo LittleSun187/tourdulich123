@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh Sách Tour - Du Lịch</title>
+    <style>
+        body{
+            background: linear-gradient(135deg, #3498db, #2ecc38);
+        }
+    </style>
+   <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #d6e9f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+            color: #333;
+        }
+        .filter-bar {
+            background-color: #e5f4fe;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .filter-bar select {
+            padding: 8px;
+            margin-right: 10px;
+            border-radius: 4px;
+            border: 1px solid #c5c5c5;
+        }
+        .tour-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .tour-item {
+            background-color: #e0f3fa;
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .tour-item h2 {
+            margin-top: 0;
+            color: #007BFF;
+        }
+        .tour-item p {
+            font-size: 16px;
+            color: #555;
+        }
+        .tour-item .price {
+            font-weight: bold;
+            color: #e74c3c;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1 style="color:rgb(71, 33, 243)">Danh Sách Tour Du Lịch</h1>
+        <p>Với sự hợp tác giảm giá ưu đãi cùng hệ thống đối tác lớn, chúng tôi tự tin mang đến cho quý khách combo vé máy bay và khách sạn với giá tốt nhất!</p>
+        <br>
+        
+        <!-- Thanh lọc -->
+        <div class="filter-bar">
+            <label for="price-filter">Lọc theo giá:</label>
+            <select id="price-filter">
+                <option value="all">Tất cả</option>
+                <option value="under-3000">Dưới 3 triệu</option>
+                <option value="3000-5000">3 triệu - 5 triệu</option>
+                <option value="above-5000">Trên 5 triệu</option>
+            </select>
+            <label for="type-filter">Lọc theo loại tour:</label>
+            <select id="type-filter">
+                <option value="all">Tất cả</option>
+                <option value="mountain">Tour núi</option>
+                <option value="beach">Tour biển</option>
+                <option value="cultural">Tour văn hóa</option>
+            </select>
+        </div>
+
+        <!-- Danh sách tour -->
+        <ul class="tour-list">
+            <li class="tour-item" data-price="3500000" data-type="mountain">
+                <h2>Tour Hà Nội - Sapa</h2>
+                <p><strong>Địa điểm:</strong> Hà Nội, Sapa</p>
+                <p><strong>Mô tả:</strong> Khám phá vẻ đẹp của Hà Nội cổ kính và thiên nhiên hùng vĩ của Sapa. Tour bao gồm tham quan các bản làng, núi Fansipan, và chợ Sapa.</p>
+                <p class="price">Giá: 3.500.000 VND</p>
+            </li>
+            <li class="tour-item" data-price="4000000" data-type="beach">
+                <h2>Tour Nha Trang - Phú Quốc</h2>
+                <p><strong>Địa điểm:</strong> Nha Trang, Phú Quốc</p>
+                <p><strong>Mô tả:</strong> Chuyến đi kết hợp giữa biển xanh, cát trắng và những hòn đảo tuyệt đẹp. Tham gia các hoạt động thể thao dưới nước và thưởng thức đặc sản địa phương.</p>
+                <p class="price">Giá: 4.000.000 VND</p>
+            </li>
+            <li class="tour-item" data-price="2500000" data-type="cultural">
+                <h2>Tour TP.HCM - Mekong Delta</h2>
+                <p><strong>Địa điểm:</strong> TP.HCM, Đồng bằng sông Cửu Long</p>
+                <p><strong>Mô tả:</strong> Tham quan các khu chợ nổi, làng nghề truyền thống và thưởng thức ẩm thực đặc sản miền Tây.</p>
+                <p class="price">Giá: 2.500.000 VND</p>
+            </li>
+            <li class="tour-item" data-price="2500000" data-type="cultural">
+                <h2>Tour ĐÀ NẴNG – SƠN TRÀ – BÀ NÀ </h2>
+                <p><strong>Địa điểm:</strong> TP.Đà Nẵng </p>
+                <p><strong>Mô tả:</strong> Chiêm ngưỡng cảnh đẹp hoang sơ, hùng vĩ, viếng Chùa Linh Ứng với tượng Phật Bà Quan Âm cao nhất Việt Nam.</p>
+                <p class="price">Giá: 2.500.000 VND</p>
+            </li>
+            <li class="tour-item" data-price="2500000" data-type="cultural">
+                <h2>Tour Du lịch Phú Quốc</h2>
+                <p><strong>Địa điểm:</strong> Đảo Phú Quốc </p>
+                <p><strong>Mô tả:</strong> Du lịch mùa Thu Phú Quốc là lựa chọn tuyệt vời dành cho bạn bởi đây là khoảng thời gian lý tưởng nhất trong năm để có được những trải nghiệm tuyệt vời và thú vị ở hòn đảo được mệnh danh “Đảo Ngọc” của đất nước.</p>
+                <p class="price">Giá: 4.500.000 VND</p>
+            </li>
+            <li class="tour-item" data-price="2500000" data-type="cultural">
+                    <h2>Tour Bắc Kinh- Tô Châu - Hàng Châu - Thượng Hải - Chinh Phục Vạn Lý Trường Thành</h2>
+                    <p><strong>Địa điểm:</strong>Đảo TRung Quốc</p>
+                    <p><strong>Mô tả:</strong> Trung Quốc đất nước thiên nhiên cẩm tú tráng lệ, có nền văn hóa 3.500 năm rực rỡ, khác biệt với sắc đỏ của Tử Cấm Thành, Vạn Lý Trường Thành, không gian hiện đại xen kẽ những lâu đài và tòa thành cổ, Trung Quốc là một vùng đất mê hoặc bất cứ khách du lịch nào.</p>
+                    <p class="price">Giá: 24.500.000 VND</p>
+                </li>
+                <li class="tour-item" data-price="2500000" data-type="cultural">
+                    <h2>Tour Du lịch Mỹ mùa Thu</h2>
+                    <p><strong>Địa điểm:</strong>Mỹ</p>
+                    <p><strong>Mô tả:</strong> Mùa Thu nước Mỹ sẽ đem lại cho bạn nhiều điều mới lạ thú vị, hãy đi và cảm nhận du lịch mùa Thu hấp dẫn tại Mỹ nhé!</p>
+                    <p class="price">Giá: 52.500.000 VND</p>
+                </li>
+            
+        
+        </ul>
+    </div>
+
+    <script>
+        // Lọc tour theo giá
+        document.getElementById('price-filter').addEventListener('change', function() {
+            var priceFilter = this.value;
+            var tours = document.querySelectorAll('.tour-item');
+            tours.forEach(function(tour) {
+                var price = parseInt(tour.getAttribute('data-price'));
+                if (priceFilter === 'all') {
+                    tour.style.display = 'block';
+                } else if (priceFilter === 'under-3000' && price < 3000000) {
+                    tour.style.display = 'block';
+                } else if (priceFilter === '3000-5000' && price >= 3000000 && price <= 5000000) {
+                    tour.style.display = 'block';
+                } else if (priceFilter === 'above-5000' && price > 5000000) {
+                    tour.style.display = 'block';
+                } else {
+                    tour.style.display = 'none';
+                }
+            });
+        });
+
+        // Lọc tour theo loại
+        document.getElementById('type-filter').addEventListener('change', function() {
+            var typeFilter = this.value;
+            var tours = document.querySelectorAll('.tour-item');
+            tours.forEach(function(tour) {
+                var type = tour.getAttribute('data-type');
+                if (typeFilter === 'all' || type === typeFilter) {
+                    tour.style.display = 'block';
+                } else {
+                    tour.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

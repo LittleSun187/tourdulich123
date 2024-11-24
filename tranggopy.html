@@ -1,0 +1,146 @@
+<<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Góp Ý</title>
+  
+    <style>
+        /* Thiết lập cơ bản */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #3498db, #2ecc38);
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Container chính */
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, #6c63ff, #6aeefc);
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        /* Form góp ý */
+        .form-container {
+            padding: 20px;
+        }
+
+        .form-container label {
+            font-size: 16px;
+            margin-bottom: 10px;
+            display: block;
+            color: #333;
+        }
+
+        .form-container input,
+        .form-container select,
+        .form-container textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        .form-container textarea {
+            resize: none;
+            height: 100px;
+        }
+
+        .form-container button {
+            background: linear-gradient(135deg, #6c63ff, #6aeefc);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.3s ease;
+        }
+
+        .form-container button:hover {
+            background: linear-gradient(135deg, #6aeefc, #6c63ff);
+        }
+
+        /* Thông báo cảm ơn */
+        .thank-you {
+            text-align: center;
+            padding: 20px;
+            display: none;
+            color: #28a745;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>Góp Ý Của Bạn</h1>
+        <p>Hãy chia sẻ cảm nhận hoặc ý tưởng của bạn để chúng tôi phục vụ tốt hơn!</p>
+    </div>
+    
+    <div class="form-container">
+        <form id="feedback-form">
+            <label for="name">Tên của bạn:</label>
+            <input type="text" id="name" name="name" placeholder="Nhập tên của bạn..." required>
+
+            <label for="email">Email của bạn:</label>
+            <input type="email" id="email" name="email" placeholder="Nhập email của bạn..." required>
+
+            <label for="tour">Chọn tour bạn muốn góp ý:</label>
+            <select id="tour" name="tour">
+                <option value="">-- Chọn một tour --</option>
+                <option value="ha-noi-sapa">Tour Hà Nội - Sapa</option>
+                <option value="nha-trang-phu-quoc">Tour Nha Trang - Phú Quốc</option>
+                <option value="tp-hcm-mekong">Tour TP.HCM - Mekong</option>
+                <option value="other">Khác</option>
+            </select>
+
+            <label for="feedback">Ý kiến của bạn:</label>
+            <textarea id="feedback" name="feedback" placeholder="Nhập ý kiến của bạn..." required></textarea>
+
+            <button type="submit">Gửi Góp Ý</button>
+        </form>
+
+        <div class="thank-you" id="thank-you-message">
+            <p>Cảm ơn bạn đã gửi góp ý! Chúng tôi trân trọng mọi ý kiến để ngày càng hoàn thiện hơn.</p>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Xử lý sự kiện gửi form
+    document.getElementById('feedback-form').addEventListener('submit', function(event) {
+        event.preventDefault(); // Dừng hành vi mặc định
+
+        // Hiển thị thông báo cảm ơn
+        document.getElementById('thank-you-message').style.display = 'block';
+
+        // Ẩn form sau khi gửi
+        this.style.display = 'none';
+    });
+</script>
+
+</body>
+</html>
+
