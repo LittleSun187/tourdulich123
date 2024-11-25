@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đặt Tour</title>
+    <style>
+        body{
+            background: linear-gradient(135deg, #3498db, #2ecc38);
+        }
+    </style>
+    <style>
+        /* Cơ bản */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8ebfc;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f4f4f4;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            color: #333;
+        }
+
+        .header p {
+            font-size: 16px;
+            color: #666;
+        }
+
+        .tour-details {
+            margin-bottom: 20px;
+        }
+
+        .tour-details h2 {
+            font-size: 22px;
+            color: #333;
+        }
+
+        .tour-details p {
+            font-size: 16px;
+            color: #555;
+            margin: 5px 0;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 5px;
+            color: #333;
+        }
+
+        .form-group input, .form-group textarea, .form-group select {
+            width: 97%;
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            height: 100px;
+        }
+
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+            border-color: #6c63ff;
+            outline: none;
+        }
+
+        .submit-btn {
+            display: inline-block;
+            padding: 12px 20px;
+            background: linear-gradient(135deg, #6c63ff, #6aeefc);
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            text-align: center;
+            transition: background 0.3s ease;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background: linear-gradient(135deg, #6aeefc, #6c63ff);
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1 style="color:#6aa7fc">Đặt Tour</h1>
+        <p>Hoàn tất thông tin bên dưới để xác nhận đặt tour.</p>
+    </div>
+
+    <div class="tour-details" id="tourDetails">
+        <h2>Tên Tour: <span id="tourName">[Tên Tour]</span></h2>
+        <p><b>Giá:</b> <span id="tourPrice">[Giá]</span></p>
+        <p style="color:#6aa7fc">Hành trình đáng nhớ đang chờ bạn!</p>
+    </div>
+
+    <form id="bookingForm" onsubmit="submitBooking(event)">
+        <!-- Thông tin khách hàng -->
+        <div class="form-group">
+            <label for="fullName"><b>Họ và Tên:</b></label>
+            <input type="text" id="fullName" name="fullName" placeholder="Nhập họ và tên của bạn" required>
+        </div>
+        <div class="form-group">
+            <label for="email"><b>Email:</b></label>
+            <input type="email" id="email" name="email" placeholder="Nhập email của bạn" required>
+        </div>
+        <div class="form-group">
+            <label for="phone"><b>Số Điện Thoại:</b></label>
+            <input type="tel" id="phone" name="phone" placeholder="Nhập số điện thoại của bạn" required>
+        </div>
+        <div class="form-group">
+            <label for="notes"><b>Ghi Chú (Không bắt buộc):</b></label>
+            <textarea id="notes" name="notes" placeholder="Nhập ghi chú nếu cần..."></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn"><b>Hoàn Tất Đặt Tour</b></button>
+    </form>
+</div>
+
+<script>
+    // Lấy thông tin tour từ URL
+    const params = new URLSearchParams(window.location.search);
+    const tourName = params.get('tour') || 'Chưa xác định';
+    const tourPrices = {
+        "Tour Hà Nội - Sapa": "5,500,000 VNĐ",
+        "Tour Nha Trang - Phú Quốc": "6,800,000 VNĐ",
+        "Tour TP.HCM - Mekong Delta": "3,200,000 VNĐ",
+        "Tour Tùy Chỉnh": "Liên hệ"
+    };
+    const tourPrice = tourPrices[tourName] || 'Liên hệ';
+
+    // Hiển thị thông tin tour
+    document.getElementById('tourName').innerText = tourName;
+    document.getElementById('tourPrice').innerText = tourPrice;
+
+    // Xử lý form đặt tour
+    function submitBooking(event) {
+        event.preventDefault();
+
+        const fullName = document.getElementById('fullName').value;
+        const email = document.getElementById('email').value;
+        const phone = document.getElementById('phone').value;
+        const notes = document.getElementById('notes').value;
+
+        alert(`
+            Cảm ơn bạn đã đặt tour!
+            Thông tin của bạn:
+            - Tên: ${fullName}
+            - Email: ${email}
+            - Số điện thoại: ${phone}
+            - Tour: ${tourName}
+        `);
+
+        // Thêm logic gửi thông tin tới server tại đây nếu cần
+    }
+</script>
+
+</body>
+</html>
